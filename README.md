@@ -36,7 +36,7 @@ I also want to understand how automation can be applied to cloud infrastructure 
 
 ## Automation Learning Path
 
-
+```text
 PowerShell
     ↓
 Python
