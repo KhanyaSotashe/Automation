@@ -52,6 +52,7 @@ GitHub Actions / CI/CD
 Cloud Automation
     ↓
 Security Automation
+```text
 
 ## 📚 Projects
 
