@@ -63,3 +63,53 @@ The automation script is written in **PowerShell** and uses the `.ps1` file exte
                      YES          NO
                       ↓            ↓
                 Report Success  Report Failure
+```
+
+## What I Learned
+
+1. **PowerShell Cmdlets** — Learned how to use PowerShell commands such as `Get-Service` to retrieve information from Windows services.
+
+2. **Variables** — Learned how to store information in variables and access the data later in the script.
+
+3. **Object Properties** — Learned how to access properties of PowerShell objects, such as using `$Service.Status` to retrieve a service's current status.
+
+4. **Conditional Logic** — Learned how to use `if/else` statements to make the script perform different actions based on the service status.
+
+5. **Automated Recovery & Verification** — Learned how to automatically start a stopped service and then verify that the service successfully started.
+
+   ## IF YOU ARE INTERESTED TO CHECK IT OUT, FIND THE SCRIPT BELOW
+```powershell
+# Define the service name
+$ServiceName = "W32Time"
+
+# Get the current status of the service
+$Service = Get-Service -Name$ServiceName
+
+Write-Host "Checking status of $ServiceName..."
+
+# Check if the service is running
+if ($Service.Status -eq 'Running') {
+    Write-Host "The $ServiceName service is already running." -ForegroundColor Green
+}
+else {
+    Write-Host "The $ServiceName service is currently stopped. Attempting to start it..." -ForegroundColor Yellow
+    
+    # Attempt to start the service
+    Start-Service -Name $ServiceName
+    
+    # Pause for 2 seconds to let the service start
+    Start-Sleep -Seconds 2
+    
+    # Refresh the service object to get the new status
+    $Service.Refresh()
+    
+    # Verify if the service successfully started
+    if ($Service.Status -eq 'Running') {
+        Write-Host "Success! The $ServiceName service has been started." -ForegroundColor Green
+    }
+    else {
+        Write-Host "Failure. The $ServiceName service could not be started." -ForegroundColor Red
+    }
+}
+```
+   
