@@ -6,7 +6,7 @@ This folder documents my journey into IT, cloud and security automation.
 
 I am developing my automation skills to learn how repetitive IT and cloud tasks can be performed through scripts and automated processes rather than relying entirely on manual administration.
 
-My goal is to progress from basic scripting into Azure automation, Infrastructure as Code, CI/CD, and eventually cloud security automation.
+My goal is to progress from basic scripting into Azure automation, Infrastructure as Code, CI/CD and eventually cloud security automation.
 
 ---
 
