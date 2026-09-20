@@ -78,12 +78,9 @@ The automation script is written in **PowerShell** and uses the `.ps1` file exte
 5. **Automated Recovery & Verification** — Learned how to automatically start a stopped service and then verify that the service successfully started.
 
    ## IF YOU ARE INTERESTED TO CHECK IT OUT, FIND THE SCRIPT BELOW
-
-   ```powershell
-$ServiceName = "W32Time"
-$Service = Get-Service -Name$ServiceName
-
-Write-Host "Checking status of $ServiceName..."
+```powershell
+   $ServiceName = "W32Time"
+$Service = Get-Service -Name $ServiceName
 
 if ($Service.Status -eq 'Running') {
     Write-Host "The $ServiceName service is already running."
@@ -103,3 +100,5 @@ else {
     }
 }
 ```
+
+
