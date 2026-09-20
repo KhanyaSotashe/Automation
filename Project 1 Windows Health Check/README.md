@@ -78,38 +78,28 @@ The automation script is written in **PowerShell** and uses the `.ps1` file exte
 5. **Automated Recovery & Verification** — Learned how to automatically start a stopped service and then verify that the service successfully started.
 
    ## IF YOU ARE INTERESTED TO CHECK IT OUT, FIND THE SCRIPT BELOW
-```powershell
-# Define the service name
-$ServiceName = "W32Time"
 
-# Get the current status of the service
+   ```powershell
+$ServiceName = "W32Time"
 $Service = Get-Service -Name$ServiceName
 
 Write-Host "Checking status of $ServiceName..."
 
-# Check if the service is running
 if ($Service.Status -eq 'Running') {
-    Write-Host "The $ServiceName service is already running." -ForegroundColor Green
+    Write-Host "The $ServiceName service is already running."
 }
 else {
-    Write-Host "The $ServiceName service is currently stopped. Attempting to start it..." -ForegroundColor Yellow
+    Write-Host "The $ServiceName service is currently stopped. Attempting to start it..."
     
-    # Attempt to start the service
     Start-Service -Name $ServiceName
-    
-    # Pause for 2 seconds to let the service start
     Start-Sleep -Seconds 2
-    
-    # Refresh the service object to get the new status
     $Service.Refresh()
     
-    # Verify if the service successfully started
     if ($Service.Status -eq 'Running') {
-        Write-Host "Success! The $ServiceName service has been started." -ForegroundColor Green
+        Write-Host "Success! The $ServiceName service has been started."
     }
     else {
-        Write-Host "Failure. The $ServiceName service could not be started." -ForegroundColor Red
+        Write-Host "Failure. The $ServiceName service could not be started."
     }
 }
 ```
-   
