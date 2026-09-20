@@ -52,3 +52,9 @@ GitHub Actions / CI/CD
 Cloud Automation
     ↓
 Security Automation
+
+## 📚 Projects
+
+| Project number | Topic | 
+|---|---|
+| Project 1 |  Windows Service health check and recovery |
